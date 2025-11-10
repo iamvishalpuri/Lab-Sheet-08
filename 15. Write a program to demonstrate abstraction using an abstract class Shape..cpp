@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual float area() = 0;
+};
+
+class Circle : public Shape {
+    float radius;
+public:
+    Circle(float r) { radius = r; }
+    float area() { return 3.14 * radius * radius; }
+};
+
+class Rectangle : public Shape {
+    float length, width;
+public:
+    Rectangle(float l, float w) { length = l; width = w; }
+    float area() { return length * width; }
+};
+
+int main() {
+    Circle c(5);
+    Rectangle r(4, 6);
+    cout << "Circle Area: " << c.area() << endl;
+    cout << "Rectangle Area: " << r.area() << endl;
+    return 0;
+}
+
+Output
+Circle Area : 78.5
+Rectangle Area : 24
