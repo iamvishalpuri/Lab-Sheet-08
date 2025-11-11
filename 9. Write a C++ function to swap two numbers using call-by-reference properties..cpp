@@ -1,23 +1,25 @@
 #include <iostream>
 using namespace std;
-
-void swapNumbers(int& x, int& y) {
-    int temp = x;
-    x = y;
-    y = temp;
-}
-
+void swapByReference(int &a, int &b);
 int main() {
-    int a, b;
+    int x, y;
     cout << "Enter two numbers: ";
-    cin >> a >> b;
-    cout << "Before: a=" << a << ", b=" << b << endl;
-    swapNumbers(a, b);
-    cout << "After: a=" << a << ", b=" << b << endl;
+    cin >> x >> y;
+    cout << "Before swap: x = " << x << ", y = " << y << endl;
+    
+    swapByReference(x, y);
+    cout << "After swap: x = " << x << ", y = " << y << endl;
     return 0;
 }
 
+void swapByReference(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+
 Output
-Enter two numbers : 10 20
-Before : a = 10, b = 20
-After : a = 20, b = 10
+Enter two numbers: 10 20
+Before swap: x = 10, y = 20
+After swap: x = 20, y = 10
