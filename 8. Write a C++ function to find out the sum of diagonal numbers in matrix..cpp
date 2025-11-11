@@ -1,28 +1,33 @@
 #include <iostream>
 using namespace std;
-
-int diagonalSum(int matrix[][10], int size) {
-    int sum = 0;
-    for (int i = 0; i < size; i++)
-        sum += matrix[i][i];
-    return sum;
-}
-
+const int MAX = 10;
+int sumDiagonal(int matrix[][MAX], int size);
 int main() {
-    int n, mat[10][10];
-    cout << "Enter size (n x n): "; 
+    int n;
+    cout << "Enter size of square matrix: ";
     cin >> n;
-    cout << "Enter matrix:\n";
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++) cin >> mat[i][j];
-    cout << "Diagonal sum = " << diagonalSum(mat, n) << endl;
+    int squareMatrix[MAX][MAX];
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j) cin >> squareMatrix[i][j];
+    
+    int diagonalSum = sumDiagonal(squareMatrix, n);
+    cout << "Sum of diagonal: " << diagonalSum << endl;
     return 0;
 }
 
+int sumDiagonal(int matrix[][MAX], int size) {
+    int total = 0;
+    for (int i = 0; i < size; ++i) {
+        total += matrix[i][i];
+    }
+    return total;
+}
+
 Output
-Enter size(n x n) : 3
-Enter matrix :
+Enter size of square matrix: 3
+Enter elements:
 1 2 3
 4 5 6
 7 8 9
-Diagonal sum = 15
+Sum of diagonal: 15
